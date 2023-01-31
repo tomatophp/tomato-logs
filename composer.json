@@ -1,0 +1,42 @@
+{
+    "name": "tomatophp/tomato-logs",
+    "type": "library",
+    "description": "Log Viewer for TomatoPHP using Laravel Log Reader",
+    "keywords": [
+        "php",
+        "laravel",
+        "template"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TomatoPHP\\TomatoLogs\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TomatoPHP\\TomatoLogs\\TomatoLogsServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Fady Mondy",
+            "email": "info@3x1.io"
+        }
+    ],
+    "require": {
+        "php": "^8.0.2",
+        "tomatophp/console-helpers": "^1.0",
+        "tomatophp/tomato-admin": "^1.0",
+        "tomatophp/tomato-roles": "^1.0",
+        "calebporzio/sushi": "^2.3",
+        "jackiedo/log-reader": "^2.2"
+    }
+}
