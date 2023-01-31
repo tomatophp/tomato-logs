@@ -9,11 +9,6 @@ Log Viewer for TomatoPHP using Laravel Log Reader
 ```bash
 composer require tomatophp/tomato-logs
 ```
-after install please run this command to install
-
-```bash
-php artisan tomato-logs:install
-```
 
 ## Support
 
