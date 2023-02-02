@@ -24,7 +24,7 @@ class TomatoLogsServiceProvider extends ServiceProvider
         //Publish Config
         $this->publishes([
            __DIR__.'/../config/tomato-logs.php' => config_path('tomato-logs.php'),
-        ], 'config');
+        ], 'tomato-logs-config');
 
         //Register Migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
@@ -32,22 +32,23 @@ class TomatoLogsServiceProvider extends ServiceProvider
         //Publish Migrations
         $this->publishes([
            __DIR__.'/../database/migrations' => database_path('migrations'),
-        ], 'migrations');
+        ], 'tomato-logs-migrations');
+
         //Register views
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'tomato-logs');
 
         //Publish Views
         $this->publishes([
            __DIR__.'/../resources/views' => resource_path('views/vendor/tomato-logs'),
-        ], 'views');
+        ], 'tomato-logs-views');
 
         //Register Langs
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'tomato-logs');
 
         //Publish Lang
         $this->publishes([
-           __DIR__.'/../resources/lang' => resource_path('lang/vendor/tomato-logs'),
-        ], 'lang');
+           __DIR__.'/../resources/lang' => app_path('lang/vendor/tomato-logs'),
+        ], 'tomato-logs-lang');
 
         //Register Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');

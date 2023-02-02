@@ -37,7 +37,6 @@ class TomatoLogsInstall extends Command
     public function handle()
     {
         $this->info('🍅 Publish Vendor Assets');
-        $this->call('vendor:publish', ['--provider' => 'TomatoPHP\TomatoLogs\TomatoLogsServiceProvider']);
         $this->artisanCommand(["migrate"]);
         $this->artisanCommand(["optimize:clear"]);
         $this->info('🍅 Tomato Logs installed successfully.');
