@@ -12,7 +12,7 @@ use ProtoneMedia\Splade\Facades\Toast;
 use TomatoPHP\TomatoLogs\Models\LogFile;
 use TomatoPHP\TomatoLogs\Models\LogGetFile;
 use TomatoPHP\TomatoLogs\Tables\FilesTable;
-use TomatoPHP\TomatoPHP\Services\Tomato;
+use TomatoPHP\TomatoAdmin\Facade\Tomato;
 
 class LogsController extends Controller
 {
@@ -24,6 +24,7 @@ class LogsController extends Controller
     {
         return Tomato::index(
             request: $request,
+            model: LogFile::class,
             view: 'tomato-logs::logs.index',
             table: \TomatoPHP\TomatoLogs\Tables\LogsTable::class,
         );

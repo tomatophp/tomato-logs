@@ -39,6 +39,6 @@ class LogGetFile extends Model
 
     protected function sushiShouldCache()
     {
-        return false;
+        return true;
     }
 }

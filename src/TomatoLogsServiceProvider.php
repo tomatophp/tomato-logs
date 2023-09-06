@@ -3,8 +3,9 @@
 namespace TomatoPHP\TomatoLogs;
 
 use Illuminate\Support\ServiceProvider;
+use TomatoPHP\TomatoAdmin\Facade\TomatoMenu;
 use TomatoPHP\TomatoLogs\Menus\LogsMenu;
-use TomatoPHP\TomatoPHP\Services\Menu\TomatoMenuRegister;
+use TomatoPHP\TomatoAdmin\Services\Contracts\Menu;
 use TomatoPHP\TomatoRoles\Services\Permission;
 use TomatoPHP\TomatoRoles\Services\TomatoRoles;
 
@@ -53,9 +54,18 @@ class TomatoLogsServiceProvider extends ServiceProvider
         //Register Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
-        TomatoMenuRegister::registerMenu(LogsMenu::class);
-
         $this->registerPermissions();
+    }
+
+    public function boot(): void
+    {
+        TomatoMenu::register([
+            Menu::make()
+                ->group(trans('tomato-logs::global.group'))
+                ->label(trans('tomato-logs::global.title'))
+                ->icon("bx bx-history")
+                ->route("admin.logs.index"),
+        ]);
     }
 
     /**
@@ -63,33 +73,30 @@ class TomatoLogsServiceProvider extends ServiceProvider
      */
     private function registerPermissions(): void
     {
-        TomatoRoles::register(Permission::make()
-            ->name('admin.logs.index')
-            ->guard('web')
-            ->group('logs')
-        );
+        if(class_exists(TomatoRoles::class)){
+            TomatoRoles::register(Permission::make()
+                ->name('admin.logs.index')
+                ->guard('web')
+                ->group('logs')
+            );
 
-        TomatoRoles::register(Permission::make()
-            ->name('admin.logs.file')
-            ->guard('web')
-            ->group('logs')
-        );
+            TomatoRoles::register(Permission::make()
+                ->name('admin.logs.file')
+                ->guard('web')
+                ->group('logs')
+            );
 
-        TomatoRoles::register(Permission::make()
-            ->name('admin.logs.show')
-            ->guard('web')
-            ->group('logs')
-        );
+            TomatoRoles::register(Permission::make()
+                ->name('admin.logs.show')
+                ->guard('web')
+                ->group('logs')
+            );
 
-        TomatoRoles::register(Permission::make()
-            ->name('admin.logs.destroy')
-            ->guard('web')
-            ->group('logs')
-        );
-    }
-
-    public function boot(): void
-    {
-        //you boot methods here
+            TomatoRoles::register(Permission::make()
+                ->name('admin.logs.destroy')
+                ->guard('web')
+                ->group('logs')
+            );
+        }
     }
 }

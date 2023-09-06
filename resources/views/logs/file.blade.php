@@ -1,8 +1,7 @@
 <x-tomato-admin-layout>
-    <x-slot name="header">
+    <x-slot:header>
         {{trans('tomato-logs::global.title')}} [{{ $record->id }}]
-    </x-slot>
-
+    </x-slot:header>
 
     <div class="bg-white dark:bg-gray-800 shadow overflow-hidden sm:rounded-lg mb-6">
         <div class="px-4 py-6 sm:px-6">
