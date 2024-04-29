@@ -2,7 +2,9 @@
     <x-slot:header>
         {{trans('tomato-logs::global.title')}}
     </x-slot:header>
-
+    <x-slot:icon>
+        bx bx-history
+    </x-slot:icon>
 
     <div class="pb-12" v-cloak>
         <div class="mx-auto">

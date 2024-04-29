@@ -76,12 +76,12 @@ class FilesTable extends AbstractTable
             )
             ->export()
             ->defaultSort('id')
-            ->column(key: 'actions',label: trans('tomato-roles::global.roles.actions'))
             ->column(key: "id",label: trans('tomato-logs::global.id'), sortable: true, hidden: true)
             ->column(key: "message",label: trans('tomato-logs::global.message'), sortable: true)
             ->column(key: "level",label: trans('tomato-logs::global.level'), sortable: true)
             ->column(key: "environment",label: trans('tomato-logs::global.environment'), sortable: true)
             ->column(key: "date",label: trans('tomato-logs::global.date'), sortable: true)
+            ->column(key: 'actions',label: trans('tomato-roles::global.roles.actions'))
             ->paginate(15);
     }
 }

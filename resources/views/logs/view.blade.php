@@ -8,6 +8,7 @@
         </x-tomato-admin-button>
     </x-slot:buttons>
 
+
     <div class="pb-12" v-cloak>
         <div class="mx-auto">
             <x-splade-table :for="$table" striped>

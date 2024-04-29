@@ -70,9 +70,9 @@ class LogsTable extends AbstractTable
             )
             ->export()
             ->defaultSort('id')
-            ->column(key: 'actions',label: trans('tomato-roles::global.roles.actions'))
             ->column(key: "id",label: trans('tomato-logs::global.id'), sortable: true, hidden: true)
             ->column(key: "name",label: trans('tomato-logs::global.name'), sortable: true)
+            ->column(key: 'actions',label: trans('tomato-roles::global.roles.actions'))
             ->paginate(15);
     }
 }
